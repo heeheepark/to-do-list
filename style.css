@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contentBox {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.hideText {
+  font-size: 15px;
+  padding-left: 15px;
+  display: none;
+}
+
+#textBox {
+  font-size: 15px;
+  padding-left: 12px;
+}
+
+#addListBtn {
+  cursor: pointer;
+}
+
+.main {
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ccc;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.menu div {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.menu .allBtn {
+  border-bottom: 4px solid pink;
+}
+
+.not-done {
+  display: "";
+}
+.done {
+  display: "";
+}
+#todoList_Done {
+  display: "";
+}
+
+.list-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+}
+
+.todoListText {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons span {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.icons span:first-of-type {
+  color: rgb(1, 197, 1);
+  font-weight: bold;
+}
+
+.icons span:first-of-type:hover {
+  background-color: greenyellow;
+  cursor: pointer;
+}
+
+.icons span:last-of-type {
+  color: red;
+  font-weight: bold;
+}
+
+.icons span:last-of-type:hover {
+  background-color: rgb(255, 170, 170);
+  cursor: pointer;
+}
+
