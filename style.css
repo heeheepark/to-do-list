@@ -33,12 +33,14 @@
   display: flex;
   align-items: center;
   justify-content: left;
+  border-bottom: 1px solid #ccc;
 }
 
 .menu div {
   padding: 20px;
   cursor: pointer;
 }
+#task-board {}
 
 .allBtn {
   border-bottom: 4px solid pink;
@@ -112,3 +114,12 @@
   cursor: pointer;
 }
 
+.taskList {
+  display: flex;
+  justify-content: space-between;
+  background-color: aqua;
+}
+
+.task-done {
+  text-decoration: line-through;
+}
