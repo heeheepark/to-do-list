@@ -4,14 +4,38 @@
 // 체크 버튼을 클릭하면 투두리스트텍스트의 배경색이 바뀌고 취소선 생성, 체크가 화살표로 바뀜
 
 let hideText = document.getElementsByClassName("hideText");
-let todoList_All = document.getElementById("todoList_All")
+let todoList_All = document.getElementById("todoList_All");
+let todoList_not_Done = document.getElementById("todoList_not-Done");
+let todoList_Done = document.getElementById("todoList_Done");
 
-/*
+
+let allBtn = document.getElementsByClassName("allBtn");
+allBtn[0].addEventListener("click", function() {
+  notDoneBtn[0].style.borderBottom = "none";
+  allBtn[0].style.borderBottom = "4px solid pink";
+  doneBtn[0].style.borderBottom = "none";
+})
+
+
 let notDoneBtn = document.getElementsByClassName("notDoneBtn");
 notDoneBtn[0].addEventListener("click", function() {
-  document.getElementsByClassName("done").style.display = "none";
+  let notDone = document.getElementsByClassName("not-done");
+  notDoneBtn[0].style.borderBottom = "4px solid pink";
+  allBtn[0].style.borderBottom = "none";
+  doneBtn[0].style.borderBottom = "none";
+  for (let i = 0; i < notDone.length; i++) {
+    todoList_not_Done.appendChild(notDone[i]);
+  }
+  todoList_All.style.display = "none";
+  todoList_Done.style.display = "none";
 })
-*/
+
+let doneBtn = document.getElementsByClassName("doneBtn");
+doneBtn[0].addEventListener("click", function() {
+  notDoneBtn[0].style.borderBottom = "none";
+  allBtn[0].style.borderBottom = "none";
+  doneBtn[0].style.borderBottom = "4px solid pink";
+})
 
 let inputBox = document.getElementById("textBox");
 inputBox.addEventListener("mousedown", slideBox);
@@ -38,7 +62,7 @@ function addList() {
   let firstDivElement = document.createElement("div")
   firstDivElement.classList.add("list-content");
   firstDivElement.classList.add("not-done");
-  todoList_not_Done.appendChild(firstDivElement);
+  todoList_All.appendChild(firstDivElement);
 
 
   const secondDivElement = document.createElement("div");
@@ -64,6 +88,7 @@ function addList() {
     secondDivElement.style.textDecoration = "line-through";
     doneBtn.textContent = "undo"
     doneBtn.style.color = "gray";
+    todoList_Done.appendChild(firstDivElement);
     doneBtn.addEventListener("click", function() {
       firstDivElement.classList.remove("done");
       firstDivElement.classList.add("not-done");
@@ -71,6 +96,7 @@ function addList() {
       secondDivElement.style.textDecoration = "";
       doneBtn.textContent = "done"
       doneBtn.style.color = "rgb(1, 197, 1)";
+      todoList_not_Done.appendChild(firstDivElement);
     })
   }
   // let returnBtn = document.getElementsByClassName("returnBtn");

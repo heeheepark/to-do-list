@@ -40,18 +40,32 @@
   cursor: pointer;
 }
 
-.menu .allBtn {
+.allBtn {
   border-bottom: 4px solid pink;
 }
 
+.notDoneBtn {
+  border-bottom: none;
+}
+
+.dontBtn {
+  border-bottom: none;
+}
+
 .not-done {
-  display: "";
+  display: block;
 }
 .done {
-  display: "";
+  display: block;
+}
+#todoList_All {
+  display: block;
+}
+#todoList_not_Done {
+  display: block;
 }
 #todoList_Done {
-  display: "";
+  display: block;
 }
 
 .list-content {
