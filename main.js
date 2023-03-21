@@ -4,13 +4,39 @@ let filterList = [];
 let doneList = [];
 let tabs = document.querySelectorAll(".menu div");
 let mode = "all";
+let underLine = document.getElementById("under-line");
+let menu = document.querySelectorAll(".menu div:not(:first-of-type)");
+let taskText = document.getElementsByClassName("taskList");
+let hideText = document.getElementsByClassName("hideText");
 
-for(let i = 0; i < tabs.length; i++) {
+
+menu.forEach((menu) => menu.addEventListener("click", (e) => indicator(e.currentTarget)));
+
+function indicator(e) {
+  underLine.style.left = e.offsetLeft + "px";
+  underLine.style.width = e.offsetWidth + "px";
+  underLine.style.top = e.offsetTop + e.offsetHeight + "px";
+}
+
+for(let i = 1; i < tabs.length; i++) {
   tabs[i].addEventListener("click", function(event) {filter(event)});
 }
 
 let inputBox = document.getElementById("textBox"); 
+inputBox.addEventListener("mousedown", function() {
+  hideText[0].style.display = "block";
+  underLine.style.top = "195px";
+  underLine.style.transition = "0";
+})
+
+/* 마우스를 input 태그 바깥에 클릭했을 때 작동하는 함수
+inputBox.addEventListener("mouseleave", function() {
+  hideText[0].style.display = "none";
+  underLine.style.top = "175px";
+  underLine.style.transition = "0";
+})
 let contentBox = document.getElementsByClassName("contentBox");
+*/
 
 let addListBtn = document.getElementById("addListBtn");
 addListBtn.addEventListener("click", addList);
@@ -22,7 +48,7 @@ function addList() {
     isComplete : false,
   };
   taskList.push(task);
-  console.log(taskList);
+  inputBox.value = "";
   render();
 }
 
@@ -36,7 +62,7 @@ function render() {
   }
   for(let i = 0; i < list.length; i++) {
     if(list[i].isComplete == true) {
-      resultHTML += `<div class="taskList">
+      resultHTML += `<div id="taskBox" class="taskList">
       <div class="task-done">${list[i].taskContent}</div>
       <div class="button">
         <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-rotate-left"></i></button>
@@ -54,7 +80,6 @@ function render() {
     }
   }
   document.getElementById("task-board").innerHTML = resultHTML;
-  console.log(list);
 }
 
 function toggleRemove(id) {
@@ -72,7 +97,6 @@ function toggleComplete(id) {
       taskList[i].isComplete = !taskList[i].isComplete;
       break;
     }
-    
   }
   render();
 }
@@ -84,7 +108,6 @@ function randomIdGenerate() {
 function filter(event) {
   filterList = [];
   mode = event.target.id;
-  console.log("filter클릭됨", event.target);
   if(mode == "all") {
     render();
   } else if (mode == "notDone") {

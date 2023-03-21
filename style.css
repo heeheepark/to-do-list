@@ -8,20 +8,40 @@
   width: 800px;
   margin: 0 auto;
 }
+.input-area {
+  margin: 20px 0;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+}
 
 .hideText {
-  font-size: 15px;
-  padding-left: 15px;
   display: none;
+  padding-left: 12px;
+  font-size: 15px;
 }
 
 #textBox {
+  width: 80%;
+  height: 30px;
   font-size: 15px;
   padding-left: 12px;
+  margin-right: 10px;
+  border: none;
+  border-bottom: 3px solid rgb(255, 206, 100);
+  outline: none;
 }
 
 #addListBtn {
+  color: #535353;
+  font-size: 25px;
   cursor: pointer;
+  padding: 0 7px;
+  background-color: rgb(255, 191, 96);
+  border: none;
+  border-radius: 5px;
 }
 
 .main {
@@ -33,55 +53,13 @@
   display: flex;
   align-items: center;
   justify-content: left;
+  padding-bottom: 4px;
   border-bottom: 1px solid #ccc;
 }
 
-.menu div {
+.menu div:not(:first-of-type) {
   padding: 20px;
   cursor: pointer;
-}
-#task-board {}
-
-.allBtn {
-  border-bottom: 4px solid pink;
-}
-
-.notDoneBtn {
-  border-bottom: none;
-}
-
-.dontBtn {
-  border-bottom: none;
-}
-
-.not-done {
-  display: block;
-}
-.done {
-  display: block;
-}
-#todoList_All {
-  display: block;
-}
-#todoList_not_Done {
-  display: block;
-}
-#todoList_Done {
-  display: block;
-}
-
-.list-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #ccc;
-}
-
-.todoListText {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
 }
 
 .icons {
@@ -89,37 +67,62 @@
   align-items: center;
 }
 
-.icons span {
-  padding: 20px;
-  background-color: #fff;
+.taskList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  padding-left: 20px;
 }
 
-.icons span:first-of-type {
+.button {
+  font-size: 0;
+  line-height: 0;
+}
+
+.button button:first-of-type {
+  font-size: 18px;
   color: rgb(1, 197, 1);
   font-weight: bold;
+  background-color: #ffffff;
+  border: none;
+  padding: 20px 25px;
 }
 
-.icons span:first-of-type:hover {
+.button button:first-of-type:hover {
   background-color: greenyellow;
   cursor: pointer;
 }
 
-.icons span:last-of-type {
+.button button:last-of-type {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ffffff;
+  border: none;
+  padding: 20px 25px;
   color: red;
   font-weight: bold;
 }
 
-.icons span:last-of-type:hover {
+.button button:last-of-type:hover {
   background-color: rgb(255, 170, 170);
   cursor: pointer;
 }
 
-.taskList {
-  display: flex;
-  justify-content: space-between;
-  background-color: aqua;
+#taskBox {
+  background-color: #ccc;
 }
 
 .task-done {
   text-decoration: line-through;
+}
+
+#under-line {
+  position: absolute;
+  top: 175px;
+  left: 80px;
+  width: 58px;
+  height: 4px;
+  background-color: pink;
+  transition: 0.5s;
 }
