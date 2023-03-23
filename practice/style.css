@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 800px;
+  margin: 20px auto;
+}
+
+.input-area {
+  margin: 10px 0;
+}
+
+input {
+  width: 600px;
+  height: 25px;
+  padding-left: 10px;
+  margin-right: 5px;
+  border: 1px solid rgb(255, 207, 117);
+  font-size: 15px;
+}
+
+.input-area button {
+  border: none;
+  padding: 5px 8px;
+  background-color: rgb(255, 214, 137);
+}
+
+.content {
+  border: 1px solid #ccc;
+  border-bottom: 3px solid #ccc;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.menu div:not(:first-of-type) {
+  padding: 20px;
+  margin-bottom: 4px;
+}
+
+.menu div:not(:first-of-type):hover {
+  cursor: pointer;
+}
+
+.menu #menu-bar {
+  position: absolute;
+  top: 165px;
+  left: 81px;
+  width: 57px;
+  height: 4px;
+  background-color: pink;
+  transition: 0.5s;
+}
+
+#taskBox {
+  background-color: #ccc;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+}
+
+#task-done {
+  text-decoration: line-through;
+}
+
+.buttons {
+  font-size: 0;
+  line-height: 0;
+}
+
+.task .buttons button {
+  padding: 20px 25px;
+  border: none;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.task .buttons button:first-of-type {
+  color: rgb(0, 179, 0);
+  font-weight: bold;
+}
+
+.task .buttons button:first-of-type:hover {
+  cursor: pointer;
+  background-color: greenyellow;
+}
+
+
+.task .buttons button:last-of-type {
+  color: red;
+}
+
+.task .buttons button:last-of-type:hover {
+  cursor: pointer;
+  background-color: pink;
+}

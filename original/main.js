@@ -1,4 +1,3 @@
-
 let taskList = [];
 let filterList = [];
 let doneList = [];
@@ -9,18 +8,8 @@ let menu = document.querySelectorAll(".menu div:not(:first-of-type)");
 let taskText = document.getElementsByClassName("taskList");
 let hideText = document.getElementsByClassName("hideText");
 
-
-menu.forEach((menu) => menu.addEventListener("click", (e) => indicator(e.currentTarget)));
-
-function indicator(e) {
-  underLine.style.left = e.offsetLeft + "px";
-  underLine.style.width = e.offsetWidth + "px";
-  underLine.style.top = e.offsetTop + e.offsetHeight + "px";
-}
-
-for(let i = 1; i < tabs.length; i++) {
-  tabs[i].addEventListener("click", function(event) {filter(event)});
-}
+let addListBtn = document.getElementById("addListBtn");
+addListBtn.addEventListener("click", addList);
 
 let inputBox = document.getElementById("textBox"); 
 inputBox.addEventListener("mousedown", function() {
@@ -29,17 +18,19 @@ inputBox.addEventListener("mousedown", function() {
   underLine.style.transition = "0";
 })
 
-/* 마우스를 input 태그 바깥에 클릭했을 때 작동하는 함수
-inputBox.addEventListener("mouseleave", function() {
-  hideText[0].style.display = "none";
-  underLine.style.top = "175px";
-  underLine.style.transition = "0";
-})
-let contentBox = document.getElementsByClassName("contentBox");
-*/
+// 메뉴 하단바
+menu.forEach((menu) => menu.addEventListener("click", (e) => indicator(e.currentTarget)));
 
-let addListBtn = document.getElementById("addListBtn");
-addListBtn.addEventListener("click", addList);
+for(let i = 1; i < tabs.length; i++) {
+  tabs[i].addEventListener("click", function(event) {filter(event)});
+}
+
+
+function indicator(e) {
+  underLine.style.left = e.offsetLeft + "px";
+  underLine.style.width = e.offsetWidth + "px";
+  underLine.style.top = e.offsetTop + e.offsetHeight + "px";
+}
 
 function addList() {
   let task = {
