@@ -5,10 +5,9 @@ let input = document.getElementById("taskInput");
 
 let taskList = [];
 let list = [];
-let filterList = [];
+let doneList = [];
+let notDoneList = [];
 let mode = "all";
-
-console.log(menu);
 
 menu.forEach((menu) => menu.addEventListener("click", (e) => menuIndicator(e)));
 
@@ -37,6 +36,7 @@ function addList() {
     isComplete : false,
   }
   taskList.push(task);
+  notDoneList.push(task);
   input.value = "";
   render();
   }
@@ -46,10 +46,11 @@ function render() {
   let list = [];
   if (mode == "all") {
     list = taskList;
-  } else if (mode == "not-done" || mode == "done") {
-    list = filterList;
+  } else if (mode == "not-done") {
+    list = notDoneList;
+  } else if (mode == "done") {
+    list = doneList;
   }
-  console.log(list);
   for(let i = 0; i < list.length; i++) {
     if(list[i].isComplete == true) {
       resultHTML += `<div id="taskBox" class="task">
@@ -70,6 +71,9 @@ function render() {
     }
   }
   document.getElementById("task-list").innerHTML = resultHTML;
+  console.log(taskList);
+  console.log(doneList);
+  console.log(notDoneList);
 }
 
 function checkBtn(id) {
@@ -89,6 +93,18 @@ function deleteBtn(id) {
       break;
     }
   }
+  for(let i = 0; i < notDoneList.length; i++) {
+    if(notDoneList[i].id == id) {
+      notDoneList.splice(notDoneList[i], 1);
+      break;
+    }
+  }
+  for(let i = 0; i < doneList.length; i++) {
+    if(doneList[i].id == id) {
+      doneList.splice(doneList[i], 1);
+      break;
+    }
+  }
   render();
 }
 
@@ -98,22 +114,22 @@ function randomIdGenerate() {
 
 
 function filter(event) {
-  filterList = [];
+  doneList = [];
+  notDoneList = [];
   mode = event.target.id;
-  console.log(mode)
   if(mode == "all") {
     render();
   } else if (mode == "not-done") {
     for(let i = 0; i < taskList.length; i++) {
       if(taskList[i].isComplete == false) {
-        filterList.push(taskList[i]);
+        notDoneList.push(taskList[i]);
       }
     }
     render();
   } else if (mode == "done") {
     for(let i = 0; i < taskList.length; i++) {
       if(taskList[i].isComplete == true) {
-        filterList.push(taskList[i]);
+        doneList.push(taskList[i]);
       }
     }
     render();
