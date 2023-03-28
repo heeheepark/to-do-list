@@ -37,6 +37,7 @@ input {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ccc;
+  position: relative;
 }
 
 .menu div:not(:first-of-type) {
@@ -50,8 +51,8 @@ input {
 
 .menu #menu-bar {
   position: absolute;
-  top: 165px;
-  left: 81px;
+  top: 59px;
+  left: 0px;
   width: 57px;
   height: 4px;
   background-color: pink;

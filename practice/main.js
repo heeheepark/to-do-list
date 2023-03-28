@@ -24,6 +24,11 @@ for(let i = 0; i < menu.length; i++) {
   menu[i].addEventListener("click", function(event) {filter(event)})
 }
 
+function enterkey() {
+  if(window.event.keyCode == 13) {
+    addList();
+  }
+}
 
 function addList() {
   let task = {
